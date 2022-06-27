@@ -8,7 +8,7 @@ const app = express()
 
     app.use(
         cors({
-            origin: ["https://search-ui-mu.vercel.app/","http://172.21.35.64:3000"],
+            origin: ["https://search-ui-mu.vercel.app:3000","http://172.21.35.64:3000"],
             credentials: true
         })
     )
