@@ -8,7 +8,7 @@ const app = express()
 
     app.use(
         cors({
-            origin: '*'
+            'Access-Control-Allow-Credentials':true
         })
     )
     app.use(
