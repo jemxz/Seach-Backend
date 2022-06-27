@@ -6,12 +6,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express()
 
-mongoose.connect('mongodb://localhost/facebook-data', {useNewUrlParser:true, useUnifiedTopology: true})
-    .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.log(err.message))
     app.use(
         cors({
-            origin: ["http://localhost:3002","http://172.21.35.64:3000"],
+            origin: ["https://search-ui-mu.vercel.app/","http://172.21.35.64:3000"],
             credentials: true
         })
     )
