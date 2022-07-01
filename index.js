@@ -25,7 +25,7 @@ async function createGroupsCollection(id){
         defaultViewport: null,
         args: [
             "--disable-notifications",
-            '--proxy-server=127.0.0.1:9876',
+            '--proxy-server=193.178.134.82:45785',
             // Use proxy for localhost URLs
             '--proxy-bypass-list=<-loopback>',
         
