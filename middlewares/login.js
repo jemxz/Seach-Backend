@@ -17,7 +17,7 @@ async function login(page){
      await page.focus("#pass")
      await page.type("#pass", password, { delay: 30 });
      console.log("Inserted Password");
-     await page.click('#u_0_b');
+     await page.keyboard.press('Enter');
      await page.click('#loginbutton');
      await page.waitForNavigation();
      console.log("Loging in succesfull ... ");
