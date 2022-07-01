@@ -39,11 +39,14 @@ async function createGroupsCollection(id){
 
 
         const page = await browser.newPage();
+        console.log("Launching Page");
         await page.authenticate({ username, password });
         page.setDefaultNavigationTimeout(100000)
+        console.log("Authenticated proxy");
 
     // LOGING IN TO A FACEBOOK ACCOUNT --- //
     try {
+            console.log("Logging in");
             await login(page)
         } catch (error) {
             return console.log(error.message)
