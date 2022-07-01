@@ -8,7 +8,7 @@ const app = express()
 
     app.use(
         cors({
-            'Access-Control-Allow-Credentials':true
+            origin : "https://search-ui-mu.vercel.app/"
         })
     )
     app.use(
