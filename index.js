@@ -2,7 +2,8 @@ const puppeteer = require('puppeteer');
 const login = require('./middlewares/login')
 const createPosts = require('./core-scraper/post-scraper')
 const cors = require('cors')
-const mongoose = require('mongoose');
+const fs = require('fs')
+const https = require("https")
 const express = require('express');
 const app = express()
 
@@ -69,4 +70,11 @@ app.post('/api/post', async function (req, res) {
 });
 
 const port = process.env.PORT || 3223;
-app.listen(port, () => console.log(`Listening on port ${port} ...`));
+https
+  .createServer(
+    {
+      key: fs.readFileSync("server.key"),
+      cert: fs.readFileSync("server.cert"),
+    },
+    app
+  ).listen(port, () => console.log(`Listening on port ${port} ...`));
