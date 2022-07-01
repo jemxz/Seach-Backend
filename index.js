@@ -19,6 +19,8 @@ const app = express()
     app.use(express.json())
 
 async function createGroupsCollection(id){
+    const username = "Seljemxzomer";
+    const password = "O4h0AyY"
 
     const browser = await puppeteer.launch({
         headless: true,
@@ -32,7 +34,9 @@ async function createGroupsCollection(id){
         ]
     });
 
+
         const page = await browser.newPage();
+        await page.authenticate({ username, password });
         page.setDefaultNavigationTimeout(100000)
 
     // LOGING IN TO A FACEBOOK ACCOUNT --- //
