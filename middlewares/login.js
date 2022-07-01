@@ -12,9 +12,11 @@ async function login(page){
     // ENTERING EMAIL AND PASSWORD //
      await page.waitForSelector("#email");
      await page.type("#email", email,   { delay: 30 });
+     console.log("Inserted email");
      await page.waitForSelector("#pass");
      await page.focus("#pass")
      await page.type("#pass", password, { delay: 30 });
+     console.log("Inserted Password");
      await page.click('#loginbutton');
      await page.waitForNavigation();
      console.log("Loging in succesfull ... ");
