@@ -23,13 +23,16 @@ async function createGroupsCollection(id){
     const password = "O4h0AyY"
 
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         defaultViewport: null,
         args: [
             "--disable-notifications",
             '--proxy-server=193.178.134.82:45785',
             // Use proxy for localhost URLs
             '--proxy-bypass-list=<-loopback>',
+            '--no-sandbox', 
+            '--disable-setuid-sandbox', 
+            '--single-process'
         
         ]
     });
