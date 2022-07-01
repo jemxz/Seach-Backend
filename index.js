@@ -21,7 +21,7 @@ const app = express()
 async function createGroupsCollection(id){
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
         args: ["--disable-notifications"]
     });
