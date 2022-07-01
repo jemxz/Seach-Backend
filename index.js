@@ -23,7 +23,13 @@ async function createGroupsCollection(id){
     const browser = await puppeteer.launch({
         headless: false,
         defaultViewport: null,
-        args: ["--disable-notifications"]
+        args: [
+            "--disable-notifications",
+            '--proxy-server=127.0.0.1:9876',
+            // Use proxy for localhost URLs
+            '--proxy-bypass-list=<-loopback>',
+        
+        ]
     });
 
         const page = await browser.newPage();
