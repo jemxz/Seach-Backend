@@ -4,6 +4,7 @@ const createPosts = require('./core-scraper/post-scraper')
 const cors = require('cors')
 const fs = require('fs')
 const https = require("https")
+const path = require('path')
 const express = require('express');
 const app = express()
 
@@ -70,11 +71,12 @@ app.post('/api/post', async function (req, res) {
 });
 
 const port = process.env.PORT || 3223;
+
 https
   .createServer(
     {
-      key: fs.readFileSync("server.key"),
-      cert: fs.readFileSync("server.cert"),
+      key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+      cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
     },
     app
   ).listen(port, () => console.log(`Listening on port ${port} ...`));
