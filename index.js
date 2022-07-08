@@ -25,7 +25,7 @@ async function createGroupsCollection(id){
     const password = "O4h0AyY"
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
         args: [
             "--disable-notifications",
