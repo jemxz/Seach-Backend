@@ -10,9 +10,7 @@ const app = express()
 const http = require('http');
 
     app.use(
-        cors({
-            origin : "https://search-ui-mu.vercel.app/"
-        })
+        cors()
     )
     app.use(
         express.urlencoded({
