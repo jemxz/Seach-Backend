@@ -7,6 +7,7 @@ const https = require("https")
 const path = require('path')
 const express = require('express');
 const app = express()
+const http = require('http');
 
     app.use(
         cors({
@@ -70,13 +71,26 @@ app.post('/api/post', async function (req, res) {
     
 });
 
-const port = process.env.PORT || 3223;
+const hostname= "facebookscraper.cloudns.ph"
+const port = 3223;
 
-https
-  .createServer(
-    {
-      key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-      cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
-    },
-    app
-  ).listen(port, () => console.log(`Listening on port ${port} ...`));
+let options = {
+    key: fs.readFileSync('./cert/private.key'),
+    cert: fs.readFileSync("./cert/certificate.crt"),
+    ca: fs.readFileSync('./cert/ca_bundle.crt')
+}
+
+const httpsServer = https.createServer(options, app);
+
+httpsServer.listen(port, () => console.log(`Listening on port ${port} ...`));
+
+
+// https
+//   .createServer(
+//     {
+//       key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+//       cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+//     },
+//     app
+//   )
+
