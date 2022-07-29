@@ -13,7 +13,7 @@ async function scrollToBottom(page) {
         return;
       }
       await page.evaluate((y) => { document.scrollingElement.scrollBy(0, y); }, distance);
-      await page.waitFor(delay);
+      await page.waitForTimeout(delay);
     }
   }
 

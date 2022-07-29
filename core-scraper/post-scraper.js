@@ -58,7 +58,7 @@ module.exports = async function createGroups(ids, page){
 
             try {
                 await page.goto(postLinks[i]);
-                await page.waitFor(1000)
+                await page.waitForTimeout(1000)
                 // console.log("navigation succesfull");
             
             } catch (error) {
