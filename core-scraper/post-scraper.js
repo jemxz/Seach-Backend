@@ -11,7 +11,7 @@ module.exports = async function createGroups(ids, page){
         // NAVIGATION AND SCROLING TO THE DESIRED PAGE //
         try { 
                 await page.goto(ids);
-                await page.waitFor(1000)
+                await page.waitForTimeout(1000)
                 console.log("navigation succesfull");
                 await scrollToBottom(page)
                 console.log("scrolling success");
